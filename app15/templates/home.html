@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    {% for msg in messages %}
+        {{msg}}
+        {% endfor %}
+    {{user.id}}
+    {{user.Name}}
+
+    <a href="{% url 'app15:changepassword' user.id %}">Password Change</a>
+    <a href="{% url 'app15:logout' %}">logout</a>
+{% endblock %}

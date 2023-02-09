@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Place</th>
+            <th>Email</th>
+            <th>Photo</th>
+            <th>Actions</th>
+        </tr>
+        {% for user in images %}
+        <tr>
+            <td>{{user.id}}</td>
+            <td>{{user.Name}}</td>
+            <td>{{user.Age}}</td>
+            <td>{{user.Place}}</td>
+            <td>{{user.Email}}</td>
+            <td><img src="{{user.Photo.url}}" alt="" height="100px" width="100px"></td>
+            <td><a href="{% url 'app15:update' user.id %}">Update</a><br>
+                <a href="{% url 'app15:delete' user.id %}">delete</a></td>
+        </tr>
+        {% endfor %}
+        </table>
+{% endblock %}       
+
+    
